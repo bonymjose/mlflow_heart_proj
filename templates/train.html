@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Model</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4" style="color: #5A9">Select Model and Parameters</h2>
+        <form action="/train" method="post" class="bg-light p-4 rounded">
+
+            <div class="form-group">
+                <label for="model_type">Model:</label>
+                <select class="form-control" name="model_type" id="model_type">
+                    <option value="RandomForest">RandomForest</option>
+                    <option value="LogisticRegression">LogisticRegression</option>
+                    <option value="SVM">SVM</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for RandomForest hyperparameters -->
+            <div id="rf_params">
+                <div class="form-group">
+                    <label for="n_estimators">n_estimators:</label>
+                    <select class="form-control" name="n_estimators" id="n_estimators">
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="max_depth">max_depth:</label>
+                    <select class="form-control" name="max_depth" id="max_depth">
+                        <option value="">None</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dropdown for LogisticRegression and SVM hyperparameters -->
+            <div id="other_params">
+                <div class="form-group">
+                    <label for="C">C:</label>
+                    <select class="form-control" name="C" id="C">
+                        <option value="0.1">0.1</option>
+                        <option value="1.0">1.0</option>
+                        <option value="10.0">10.0</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Train</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector("select[name='model_type']").onchange = function() {
+            if (this.value == 'RandomForest') {
+                document.getElementById('rf_params').style.display = 'block';
+                document.getElementById('other_params').style.display = 'none';
+            } else {
+                document.getElementById('rf_params').style.display = 'none';
+                document.getElementById('other_params').style.display = 'block';
+            }
+        };
+    </script>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

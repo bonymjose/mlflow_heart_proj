@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/2686c82959c749628a279182513e72ce/artifacts
+end_time: 1697218678583
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2686c82959c749628a279182513e72ce
+run_name: RandomForest_2023-10-13_18:37:54
+run_uuid: 2686c82959c749628a279182513e72ce
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697218674714
+status: 3
+tags: []
+user_id: bmj

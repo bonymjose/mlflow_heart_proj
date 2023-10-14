@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLflow Runs</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4" style="color: #5A9">MLflow Runs</h1>
+
+        <table class="table table-hover table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Run ID</th>
+                    <th>Model Type</th>
+                    <th>Metrics (Accuracy)</th>
+                    <th>Deploy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if runs.empty %}
+                <tr>
+                    <td colspan="4">No runs available</td>
+                </tr>
+            {% else %}
+                {% for index, run in runs.iterrows() %}
+                    <tr>
+                        <td>{{ run["run_id"] }}</td>
+                        <td>{{ run["tags.mlflow.runName"] }}</td>
+                        <td>{{ run["metrics.accuracy"] }}</td>
+                        <td><a href="{{ url_for('deploy', run_id=run["run_id"]) }}" class="btn btn-primary">Deploy</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            
+            </tbody>
+        </table>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('train') }}" class="btn btn-success">Train a New Model</a>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

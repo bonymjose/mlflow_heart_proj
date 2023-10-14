@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/5b4a88a1b08e431c92dbeeab91ae5708/artifacts
+end_time: 1697220677901
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5b4a88a1b08e431c92dbeeab91ae5708
+run_name: LogisticRegression_2023-10-13_19:11:15
+run_uuid: 5b4a88a1b08e431c92dbeeab91ae5708
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697220675295
+status: 3
+tags: []
+user_id: bmj
